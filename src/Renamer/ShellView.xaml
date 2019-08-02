@@ -1,0 +1,15 @@
+<Window x:Class="KsWare.Renamer.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		xmlns:dragdrop="clr-namespace:KsWare.CaliburnMicro.DragDrop"
+		Title="{Binding DisplayName}"
+        >
+	<i:Interaction.Behaviors>
+		<dragdrop:DropTargetBehavior/>
+	</i:Interaction.Behaviors>
+    <Grid Background="White">
+        <ContentControl x:Name="MainScreen"/>
+    </Grid>
+
+</Window>

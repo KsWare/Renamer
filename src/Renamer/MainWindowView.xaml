@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="KsWare.Renamer.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d">
+    <DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem x:Name="MenuFileOpen" Header="_Open..."/>
+			</MenuItem>
+		</Menu>
+		<Grid DockPanel.Dock="Top" Visibility="{Binding Visibility, ElementName=ToolbarDockPanel}">
+			<DockPanel x:Name="ToolbarDockPanel" LastChildFill="False"/>
+		</Grid>
+		<Grid DockPanel.Dock="Top" Visibility="{Binding Visibility, ElementName=SearchAndReplaceDockPanel}">
+		    <DockPanel x:Name="SearchAndReplaceDockPanel" LastChildFill="False">
+				<TextBox x:Name="SearchText" Width="150"/>
+				<TextBox x:Name="ReplaceText" Width="150"/>
+				<Button x:Name="Replace" Content="Rename" />
+				<Button x:Name="Undo" Content="Undo" />
+				<Button x:Name="Apply" Content="Apply" />
+		    </DockPanel>
+		</Grid>
+	    <Grid DockPanel.Dock="Top" Visibility="{Binding Visibility, ElementName=LetterCaseDockPanel}">
+			<DockPanel x:Name="LetterCaseDockPanel" LastChildFill="False">
+				<ComboBox SelectedValue="{Binding LetterCase}" >
+					<system:String>All-caps</system:String>
+					<system:String>Start case</system:String>
+					<system:String>Title case</system:String>
+					<system:String>German-style sentence case</system:String>
+					<system:String>Sentence case</system:String>
+					<system:String>All-lowercase</system:String>
+				</ComboBox>
+				<Button x:Name="FormatLetterCase" Content="Format" />
+		    </DockPanel>
+	    </Grid>
+		<TextBox x:Name="Text" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontFamily="Consolas"/>
+    </DockPanel>
+</UserControl>
